@@ -15,8 +15,6 @@ class CreateTasksTable extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->dateTimeTz('created_at', 0);
-            $table->dateTimeTz('updated_at', 0);
             $table->string('description', 200);
             $table->string('name', 100);
             $table->string('priority'); // low, medium, high, critical -- can use to display text of the priority level - can even create styles for each individual priorty within css and  dynamically add the class 
