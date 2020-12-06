@@ -13,6 +13,8 @@ use App\Http\Controllers\TasksController;
 |
 */
 
-Route::get('/', [TaskController::class, 'index']);
+Route::resource('task', TasksController::class);
 
-Route::resource('/', TasksController::class);
+Route::get('/', function () {
+    return redirect()->route('task.index');
+});
