@@ -15,6 +15,13 @@ use App\Http\Controllers\TasksController;
 
 Route::resource('task', TasksController::class);
 
+// alternative to the above : 
+// Route:get('/task/create', [TaskController::class, 'create']);
+// Route:get('/task/edit', [TaskController::class, 'edit']);    
+// Route:get('/task/update', [TaskController::class, 'update']);
+// etc ...
+
+
 Route::get('/', function () {
     return redirect()->route('task.index');
 });
