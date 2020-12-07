@@ -8,7 +8,7 @@
         <div class="col-sm-12">
             <h1>Create Task</h1>
 
-            <form method="POST" action="{{ route('store') }}">
+            <form method="POST" action="{{ route('update') }}">
             @csrf
             <div class="row">
                 <label for="name" class="control-label">Task Name</label>
