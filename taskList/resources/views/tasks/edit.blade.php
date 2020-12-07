@@ -46,7 +46,7 @@
 
                 <div class="row justify-content-center mt-3">
                     <div class="col-sm-6">
-                        <button class="btn btn-block btn-success" type="submit">Create Task</button>
+                        <button class="btn btn-block btn-success" type="submit">Update Task</button>
                     </div>
                 </div>
 
