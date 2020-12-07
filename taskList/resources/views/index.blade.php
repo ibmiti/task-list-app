@@ -35,21 +35,20 @@
         </div>
     @endif
 
-
 	<div class="row justify-content-left">
 		<div class="col-sm-6 text-left">
         <ul style="list-style:none;">
             <li>
-                <a href="{{ url('tasks/create') }}">Create Task</a>
+                <a class="btn btn-block btn-success" href="{{ url('tasks/create') }}">Create Task</a>
             </li>
             <li>
-                <a href="{{ url('tasks/edit') }}">Edit Task</a>
+                <a class="btn btn-block btn-success mt-2" href="{{ url('tasks/edit') }}">Edit Task</a>
             </li>
             <li>
-                <a href="{{ url('tasks/create') }}">Update Task</a>
+                <a class="btn btn-block btn-success mt-2" href="{{ url('tasks/create') }}">Update Task</a>
             </li>
             <li>
-                <a href="{{ url('tasks/create') }}">Delete Task</a>
+                <a class="btn btn-block btn-success mt-2" href="{{ url('tasks/create') }}">Delete Task</a>
             </li>
         </ul>
 
