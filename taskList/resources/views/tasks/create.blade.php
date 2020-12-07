@@ -12,7 +12,7 @@
             @csrf
             <div class="row">
                 <label for="name" class="control-label">Task Name</label>
-                <input type="text" name="task" class="form-control form-control-lg" placeholder="Task Name">
+                <input type="text" name="name" class="form-control form-control-lg" placeholder="Task Name">
             </div>
 
             <div class="row mt-3">

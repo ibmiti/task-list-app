@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Task;
 
 class TasksController extends Controller
 {
@@ -55,10 +56,10 @@ class TasksController extends Controller
         $task->save();
 
         // Flash Session Message with Success
-        Session::flash('success', 'Created Task Successfully');
+        \Session::flash('success', 'Created Task Successfully');
 
         // Return A Redirect
-        return redirect()->route('task.index');
+        return redirect()->back();
         
     }
 
@@ -82,7 +83,10 @@ class TasksController extends Controller
     public function edit($id)
     {
         // use id in query to db
-        return view('tasks.edit');
+        $task = Task::find($id);
+        $task->dueDateFormatting = false;
+
+        return view('tasks.edit')->withTask($task);
     }
 
     /**
@@ -94,7 +98,29 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        return view('tasks.update');
+         // Validate The Data
+         $this->validate($request, [
+            'name' => 'required|string|max:255|min:3',
+            'description' => 'required|string|max:10000|min:10',
+            'due_date' => 'required|date',
+        ]);
+
+        // Find the related task
+        $task = Task::find($id);
+
+        // Assign the Task data from our request
+        $task->name = $request->name;
+        $task->description = $request->description;
+        $task->due_date = $request->due_date;
+
+        // Save the task
+        $task->save();
+
+        // Flash Session Message with Success
+        Session::flash('success', 'Saved The Task Successfully');
+
+        // Return A Redirect
+        return redirect()->route('task.index');
     }
 
     /**
