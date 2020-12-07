@@ -20,9 +20,9 @@ Route::get('/', function () {
 });
 
 
-Route::get('/tasks/create', [TasksController::class, 'create']);
+Route::get('/tasks/create', [TasksController::class, 'create'])->name('create');
 Route::post('/tasks/create', [TasksController::class, 'store'])->name('store');
 
-Route::get('/tasks/update', [TasksController::class, 'update']);
+Route::get('/tasks/edit', [TasksController::class, 'update']);
 Route::get('/tasks/edit', [TasksController::class, 'edit']);
 Route::get('/tasks/delete', [TasksController::class, 'delete']);
