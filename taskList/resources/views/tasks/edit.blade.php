@@ -7,12 +7,12 @@
     <div class="row">
         <div class="col-sm-12">
             <h1>Edit Task</h1>
-
-            <form method="POST" action="{{ route('update') }}">
+            
+            <form method="POST" action="{{ route('update', $task->id) }}">
             @csrf
             <div class="row">
                 <label for="name" class="control-label">Task Name</label>
-                <input type="text" name="task" class="form-control form-control-lg" placeholder="Task Name">
+                <input type="text" name="name" class="form-control form-control-lg" placeholder="Task Name">
             </div>
 
             <div class="row mt-3">
@@ -53,5 +53,4 @@
             </form>
         </div>
     </div>
-
-    @endsection
+ @endsection

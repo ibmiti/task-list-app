@@ -98,6 +98,7 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
+
          // Validate The Data
          $this->validate($request, [
             'name' => 'required|string|max:255|min:3',
@@ -117,10 +118,11 @@ class TasksController extends Controller
         $task->save();
 
         // Flash Session Message with Success
-        Session::flash('success', 'Saved The Task Successfully');
+        \Session::flash('success', 'Saved The Task Successfully');
 
         // Return A Redirect
-        return redirect()->route('task.index');
+        // return view('tasks.index');
+        return redirect()->route('index');
     }
 
     /**
