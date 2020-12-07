@@ -133,6 +133,8 @@ class TasksController extends Controller
      */
     public function destroy($id)
     {
-        return view('tasks.delete');
+        \DB::delete('delete from tasks where id = ?',[$id]);
+
+        return redirect()->route('index');
     }
 }

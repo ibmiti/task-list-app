@@ -5,13 +5,10 @@
 @section('content')
 	
 	<div class="row justify-content-center mb-3">
-		<!-- <div class="col-sm-4"> -->
-			<!-- <a href="{{ route('create') }}" class="btn btn-block btn-success">Create Task</a> -->
             <h1 class="jumbotron">Tasks App</h1>
 		<!-- </div> -->
 	</div>
 
-	<!-- @if ($tasks ?? '' ?? '') -->
 	@foreach($tasks as $task)
 		<div class="row">
 			<div class="col-sm-12">
@@ -28,11 +25,7 @@
 		</div>
 		<hr>
 	@endforeach
-    <!-- @elseif ($tasks ?? '' == '' || null) -->
-        <!-- <div class="container container-fluid center text-center">
-            <h3>Create Task to view Tasks</h3>
-        </div> -->
-    <!-- @endif -->
+
 
 	<div class="row justify-content-center mt-4">
 		<div class="col-sm-6 text-center">

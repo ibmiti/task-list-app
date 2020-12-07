@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('title', 'Create Task')
+@section('title', 'Edit Task')
 
 @section('content')
 
@@ -49,8 +49,12 @@
                         <button class="btn btn-block btn-success" type="submit">Update Task</button>
                     </div>
                 </div>
-
             </form>
         </div>
+        <form action="{{ route('delete', $task->id) }}" class="btn-block btn-success mt-4">
+            <div class="col-lg">
+                        <button class="btn btn-block btn-primary" type="submit">Delete Task</button>
+                    </div>
+            </form>
     </div>
  @endsection

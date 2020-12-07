@@ -21,8 +21,7 @@ Route::post('/tasks/create', [TasksController::class, 'store'])->name('store');
 
 Route::get('/tasks/edit/{id}', [TasksController::class, 'edit'])->name('edit');
 
-// via edit.blade.php this method will fire
 Route::post('/tasks/update/{id}', [TasksController::class, 'update'])->name('update');
 
 
-Route::get('/tasks/delete', [TasksController::class, 'delete']);
+Route::get('/tasks/delete/{id}', [TasksController::class, 'destroy'])->name('delete');
