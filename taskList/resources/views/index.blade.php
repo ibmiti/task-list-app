@@ -21,6 +21,8 @@
 				</h3>
 				<p>{{ $task->description }}</p>
 				<h4>Due Date: <small>{{ $task->due_date }}</small></h4>
+                <h4>Priority level: <small> {{ $task->priority }}</small></h4>
+                <h4>Status : <small> {{ $task->status }}</small></h4>
 				<a href="{{ route('task.edit', $task->id) }}" class="btn btn-sm btn-primary">Edit</a>
 			</div>
 		</div>
