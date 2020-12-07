@@ -59,7 +59,7 @@ class TasksController extends Controller
         \Session::flash('success', 'Created Task Successfully');
 
         // Return A Redirect
-        return redirect()->back();
+        return redirect()->route('tasks.index');
         
     }
 
