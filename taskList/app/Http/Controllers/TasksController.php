@@ -13,7 +13,7 @@ class TasksController extends Controller
      */
     public function index()
     {
-        return 'ello govnah';
+        return view('index');
     }
 
     /**
@@ -56,7 +56,8 @@ class TasksController extends Controller
      */
     public function edit($id)
     {
-        //
+        // use id in query to db
+        return view('tasks.edit');
     }
 
     /**
@@ -68,7 +69,7 @@ class TasksController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        return view('tasks.update');
     }
 
     /**
@@ -79,6 +80,6 @@ class TasksController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return view('tasks.delete');
     }
 }
