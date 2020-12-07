@@ -34,7 +34,11 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $data = [ 'task' => $request->task, 'due_date' => $request->due_date, 'description' => $request->description ];
+        dd($data);
+        
+        
     }
 
     /**
