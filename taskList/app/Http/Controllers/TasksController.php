@@ -49,7 +49,7 @@ class TasksController extends Controller
         // Create a New task
         $task = new Task;
 
-        // Assign the Task data from our request
+        // storing request data within prop-val to be stored within tables:columns [ name, description, due_date ]
         $task->name = $request->name;
         $task->description = $request->description;
         $task->due_date = $request->due_date;
