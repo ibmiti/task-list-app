@@ -14,8 +14,9 @@ class TasksController extends Controller
      */
     public function index()
     {
-        $tasks = Task::orderBy('due_date', 'asc')->paginate(5);
-
+        // on index view query task table by due_date - asc and limit return to total 10
+        $tasks = Task::orderBy('due_date', 'asc')->get()->take(10);
+        // to this view show the queried tasks 
         return view('tasks.index')->with('tasks', $tasks);
     }
 
@@ -26,6 +27,7 @@ class TasksController extends Controller
      */
     public function create()
     {
+        // this will be the tasks create view
         return view('tasks.create');
     }
 
@@ -57,22 +59,11 @@ class TasksController extends Controller
 
         // Flash Session Message with Success
         \Session::flash('success', 'Created Task Successfully');
-
-        // Return A Redirect
-        return redirect()->route('tasks.index');
-        
+    
+        // after storing data return back to index
+        return redirect()->route('index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -82,10 +73,10 @@ class TasksController extends Controller
      */
     public function edit($id)
     {
-        // use id in query to db
+        // find individual - specified tasks from db\table
         $task = Task::find($id);
         $task->dueDateFormatting = false;
-
+        // return with specified record to edit view
         return view('tasks.edit')->withTask($task);
     }
 
@@ -96,7 +87,7 @@ class TasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id)  // update specific record 
     {
 
          // Validate The Data
@@ -114,14 +105,13 @@ class TasksController extends Controller
         $task->description = $request->description;
         $task->due_date = $request->due_date;
 
-        // Save the task
+        // Save the task into db\table
         $task->save();
 
         // Flash Session Message with Success
         \Session::flash('success', 'Saved The Task Successfully');
 
-        // Return A Redirect
-        // return view('tasks.index');
+        // return redirect to route name 'index'
         return redirect()->route('index');
     }
 
@@ -133,8 +123,13 @@ class TasksController extends Controller
      */
     public function destroy($id)
     {
+        // query to delete specific record 
         \DB::delete('delete from tasks where id = ?',[$id]);
 
+        // on delete success send this to session
+        \Session::flash('success', 'Deleted The Task Successfully');
+
+        // return to index view with specified record deleted 
         return redirect()->route('index');
     }
 }

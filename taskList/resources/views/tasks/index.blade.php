@@ -8,7 +8,7 @@
             <h1 class="jumbotron">Tasks App</h1>
 		<!-- </div> -->
 	</div>
-
+	
 	@foreach($tasks as $task)
 		<div class="row">
 			<div class="col-sm-12">
